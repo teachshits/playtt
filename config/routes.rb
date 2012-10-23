@@ -1,5 +1,7 @@
 Playtt::Application.routes.draw do
   
+  ActiveAdmin.routes(self)
+
   devise_for :players
   
   resources :meetings do
