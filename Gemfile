@@ -7,7 +7,11 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
-
+gem 'haml'
+gem 'russian', '~> 0.6.0'
+gem 'styx'
+gem 'devise'
+gem 'devise-i18n'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
