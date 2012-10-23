@@ -1,3 +1,20 @@
 // Place all the styles related to the players controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.submit-center {
+
+  margin-top: 1em;
+}
+
+.dropdown-menu
+{
+  &.login-form {
+    padding: 15px !important;
+    padding-bottom: 0px !important;
+  }
+}
+
+header
+{
+  text-align: center;
+}

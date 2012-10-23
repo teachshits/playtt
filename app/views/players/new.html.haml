@@ -1,0 +1,33 @@
+.offset3.span6
+  /TODO: использовать darapper для пометки полей с ошибками: .control_group.=(errors[:name].any? ? 'error':'')
+  =form_for(@player, :html => { :class => 'form-horizontal offset1'})  do |f|
+    .control-group
+      =f.label :first_name, :class=>'control-label'
+      .controls
+        =f.text_field :first_name
+
+      =f.label :last_name, :class=>'control-label'
+      .controls
+        =f.text_field :last_name
+
+      =f.label :city, :class=>'control-label'
+      .controls
+        =f.text_field :city
+
+      =f.label :level, :class=>'control-label'
+      .controls
+        =f.select :level,['Слабый новичек', 'Новичек','Игрок','Профи']
+
+      =f.label :email, :class=>'control-label'
+      .controls
+        =f.text_field :email
+
+      =f.label :password, :class=>'control-label'
+      .controls
+        =f.password_field :password
+
+      =f.label :password_confirmation, :class=>'control-label'
+      .controls
+        =f.password_field :password_confirmation
+
+      =f.submit 'Зарегестрироваться', :class=>'offset3 submit-center'

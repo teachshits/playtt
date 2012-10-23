@@ -6,8 +6,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :city, :null => false
       t.string :gear
       t.string :level, :null => false
-      t.string :email, :null => false
-      t.string :password_digest, :null => false
+      #t.string :email, :null => false
+      #t.string :password_digest, :null => false
       t.string :level, :null =>  false
       t.boolean :admin, :null => false, :default => false
 

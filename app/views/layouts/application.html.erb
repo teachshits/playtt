@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
-  <title>Playtt</title>
+  <title>Tt</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery_ujs" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= javascript_include_tag "styx" %>
+  <%= yield(:head_js) %>
+  <%= javascript_include_tag "#{params[:controller]}" %>
+  
+
+
+  <link href='http://fonts.googleapis.com/css?family=Didact+Gothic&subset=cyrillic' rel='stylesheet' type='text/css'>
+  <%= styx_initialize %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class='container-fluid'>
 
-<%= yield %>
+
+  <%= render 'layouts/navbar' %>
+  <div class="row-fluid">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+  </div>
+<div class="row-fluid">
+  <%= yield %>
+
+</div>
+  <%= debug(params) if Rails.env.development? %>
+</div>
+
 
 </body>
 </html>

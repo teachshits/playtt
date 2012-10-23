@@ -1,0 +1,3 @@
+$('#meetings').html('')
+$('#meetings').html('<%= j render(:partial => "meetings/by_city", :locals => { :meetings => @meetings })%>')
+

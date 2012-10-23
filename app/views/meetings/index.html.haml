@@ -1,0 +1,16 @@
+-customjs("sugar")
+/-customjs("batman")
+/-customjs("batman.jquery")
+/-customjs("batman.utilitybelt")
+
+
+.span3
+  =render 'meetings/city_select'
+
+.span9
+  %header
+    %h1=t '.fresh_games'
+  =render 'meetings/center_table', :locals => { :meetings => @meetings }
+
+
+

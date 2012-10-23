@@ -1,0 +1,46 @@
+-if params[:action] != 'index'
+  %header
+    %h1=t('.meetings_in_city', :city => params[:name])
+-if !@meetings.empty?
+  %table.table.table-stripped
+    %thead
+      %tr
+        %th=t('.place')
+        %th=t('.level')
+        %th=t('.level')
+        %th=t('.level')
+        %th=t('.level')
+        %th=t('.level')
+        /%th Участвовать
+    %tbody
+      -for event in @meetings
+        %tr
+          %th
+            =event.place.name
+          %th
+            =event.level
+          %th
+            =l(event.start_at, :format => :compact) #TODO: "сегодня"
+          %th
+            =l(event.end_at, :format => :compact)
+          %th
+            =event.players_count
+          %th
+            =event.place.address
+          -if @meeting
+            %th
+              =form_tag((is_involved(event['id']) ? leave_meetings_path : enroll_meetings_path)) do
+                -if !is_involved(event['id'])
+                  =submit_tag('+', :class => "btn")
+                  =hidden_field_tag :event, 'enroll'
+                -else
+                  =submit_tag('-', :class => "btn btn-info")
+                  =hidden_field_tag(:event, 'leave')
+                =hidden_field_tag(:id, event['id'])
+
+
+            /%im.enroll(src='/images/user_add.png')
+-else
+  %header
+    %h2=t('.no_meetings_avaible')
+                

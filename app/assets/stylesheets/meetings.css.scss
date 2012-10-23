@@ -1,3 +1,20 @@
 // Place all the styles related to the meetings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'Didact Gothic', Palatino,Georgia,"Times New Roman",Times,serif !important;
+}
+.control-label {
+  width: 260px !important;
+  text-align: left !important;
+}
+.rui-calendar {
+  .timepicker {
+    select {
+      width: 60px;
+    }
+  }
+}
+.enroll {
+  width: 2em;
+}

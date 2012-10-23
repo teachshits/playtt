@@ -1,0 +1,5 @@
+=form_tag(meeting_path(:city), :class => 'form-horizontal', :method => 'get') do
+  .control-group
+    =select_tag(:name, options_for_select(list_unique_cities, (current_player.city if player_signed_in?)))
+  .control-group
+    =submit_tag 'Выбрать'

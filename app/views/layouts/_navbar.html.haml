@@ -1,0 +1,38 @@
+%nav
+  .navbar
+    .navbar-inner
+      %img.brand{:src=>'/images/ping_pong.png'}
+      %ul.nav
+        %li
+          =link_to  'Поиск партнеров', meetings_path
+        %li
+          =link_to  'Создать встречу', new_meeting_path
+        %li
+          =link_to  'Добавить место', '#'
+
+      %ul.pull-right.nav
+        -if player_signed_in?
+          %li
+            =link_to 'Профиль', player_path(current_player)
+          %li
+            =link_to 'Выход', destroy_player_session_path, method: 'delete'
+        -else
+          %li
+            =link_to  'Регистрация', new_player_path
+          %li.divider-vertical
+          %li.dropdown
+            %a.dropdown-toggle{:href=>'#', 'data-toggle'=>'dropdown'}
+              Вход
+              %strong.caret
+            .dropdown-menu.login-form
+              =form_for(:player, :url => player_session_path) do |f|
+                =f.label :email
+                =f.text_field :email
+                =f.label :password
+                =f.password_field :password
+                %button Войти
+
+
+
+
+

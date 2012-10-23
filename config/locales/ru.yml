@@ -1,0 +1,48 @@
+ru:
+  wrong_level: Выберите один из уровней игры
+  wrong_role: Ошибка задания привелегий
+  meetings:
+    index: &index
+      fresh_games: Свежие игры
+      new_meeting_created: Встреча успешно создана
+      create_new_meeting: Создайте новую встречу
+      meetings_in_city: Встречи в городе %{city}
+      no_meetings_avaible: Нету достпуных встреч
+    show: *index
+    center_table: 
+      <<: *index
+      place: Место
+      level: Уровень
+      start_at: Начало
+      end_at: Конец
+      players: Игроки
+      address: Адрес 
+  helpers:
+    label:
+      player:
+        city: Город
+        email: Электронная почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        first_name: Имя
+        last_name: Фамилия
+  activerecord:
+    attributes:
+      player:
+        city: 'Город'
+        email: 'Электронная почта'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        password_digest: 'Пароль'
+    errors:
+      format: "%{message}"
+      models:
+        player:
+          attributes:
+            last_name:
+              blank: 'не может быть пустой'
+  time:
+    formats:
+      compact: '%e %b %H:%M'
