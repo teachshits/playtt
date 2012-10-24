@@ -18,3 +18,9 @@ body {
 .enroll {
   width: 2em;
 }
+div.alert.alert-error
+{
+  li {
+    list-style-type: none;  
+  }
+}

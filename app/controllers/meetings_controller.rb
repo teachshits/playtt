@@ -4,7 +4,9 @@ class MeetingsController < ApplicationController
 
   def index
     @meeting = current_player.meetings.new if player_signed_in?
-    @meetings = Meeting.hot.limit(20).order('start_at') 
+    @meetings = Meeting.hot.limit(20).
+    where('end_at > ?', DateTime.now).
+    order('start_at') 
   end
 
   def new

@@ -7,9 +7,9 @@ module ApplicationHelper
   
   def print_devise_errors(errors)
     unless errors.nil? 
-      content = '<div class="alert alert-error">'
-      errors.each { |value|  content += content_tag(:p, value) }
-      content += '</div>'
+      content = '<div class="alert alert-error"><ul>'
+      errors.each { |value|  content += content_tag(:li, value) }
+      content += '</ul></div>'
       content_for(:devise_errors) { content.html_safe }
     end
   end
