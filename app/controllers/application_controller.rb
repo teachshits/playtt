@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   include Styx::Initializer
 
 def authenticate_admin_user!
-  redirect_to root_path unless current_player.admin?
+  authenticate_player!
+  redirect_to root_path unless current_player.try(:admin?)
 end
   
 end
