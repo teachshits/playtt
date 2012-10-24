@@ -12,6 +12,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -42,6 +43,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 group :development, :test do
   gem 'sqlite3'
+  gem 'pry'
 end
 group :production do
   gem 'pg'
