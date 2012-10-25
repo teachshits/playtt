@@ -1,6 +1,19 @@
 ru:
   wrong_level: Выберите один из уровней игры
   wrong_role: Ошибка задания привелегий
+  name: Имя
+  last_name: Фамилия
+  games_count: Игр
+  player: Игрок
+  amount_of_meetings: Встречи
+  level: Уровень
+  from: с
+  till: до
+  club: Клуб
+  address: Адрес
+  players:
+    show:
+      participated: Проведено %{amount} встреч
   meetings:
     index: &index
       fresh_games: Свежие игры
@@ -11,6 +24,7 @@ ru:
     show: *index
     center_table: 
       <<: *index
+      details: Подробности
       place: Место
       level: Уровень
       start_at: Начало
@@ -45,4 +59,7 @@ ru:
               blank: 'не может быть пустой'
   time:
     formats:
-      compact: '%e %b %H:%M'
+      compact: '%H:%M %e %b'
+      time: '%H:%M'
+      date: '%d %B'
+      local: '%c'

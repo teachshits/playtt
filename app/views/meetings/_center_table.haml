@@ -5,6 +5,7 @@
   %table.table.table-stripped
     %thead
       %tr
+        %th
         %th=t('.place')
         %th=t('.level')
         %th=t('.start_at')
@@ -15,6 +16,8 @@
     %tbody
       -for event in @meetings
         %tr
+          %th.icon
+            =link_to(t('.details'), meeting_url(event.id))
           %th
             =event.place.name
           %th
@@ -30,13 +33,13 @@
           -if @meeting
             %th
               =form_tag((is_involved(event['id']) ? leave_meetings_path : enroll_meetings_path)) do
-                -if !is_involved(event['id'])
-                  =submit_tag('+', :class => "btn")
-                  =hidden_field_tag :event, 'enroll'
-                -else
+                -if is_involved(event.id)
                   =submit_tag('-', :class => "btn btn-info")
                   =hidden_field_tag(:event, 'leave')
-                =hidden_field_tag(:id, event['id'])
+                -else
+                  =submit_tag('+', :class => "btn")
+                  =hidden_field_tag :event, 'enroll'
+                =hidden_field_tag(:id, event.id)
 
 
             /%im.enroll(src='/images/user_add.png')

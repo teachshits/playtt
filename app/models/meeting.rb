@@ -9,12 +9,11 @@ class Meeting < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :players, :through => :participations
   
-  scope :in_city, lambda {
-    includes(:place).
+  scope :in_city, lambda { |city| includes(:place).
     where(:places => {:city => city}).
     where('end_at > ?', DateTime.now)
   }
-  
+  scope :participated, where('end_at < ? ', DateTime.now)
   scope :one_participant, where(:players_count => 1)
   scope :hot, where('start_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_month)
 

@@ -1,6 +1,7 @@
 // Place all the styles related to the meetings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 body {
   font-family: 'Didact Gothic', Palatino,Georgia,"Times New Roman",Times,serif !important;
 }
@@ -8,6 +9,7 @@ body {
   width: 260px !important;
   text-align: left !important;
 }
+
 .rui-calendar {
   .timepicker {
     select {
@@ -20,7 +22,16 @@ body {
 }
 div.alert.alert-error
 {
+  text-align: center;
   li {
     list-style-type: none;  
   }
+}
+
+div.club_title, div.club_address, div.meeting_level {
+  font-size: 1.2em;
+}
+
+div.join_block {
+  margin: 1em;
 }

@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
-  before_filter :authenticate_player!, only: [:new, :edit, :update]
+  before_filter :authenticate_player!,  except: [:index, :show]
+  #only: [:new, :edit, :update]
   include MeetingsHelper
 
   def index
@@ -28,7 +29,7 @@ class MeetingsController < ApplicationController
   end
 
   def show
-
+    @meeting = Meeting.find_by_id(params[:id])
   end
 
   def city
@@ -39,14 +40,14 @@ class MeetingsController < ApplicationController
   def enroll
     event = Meeting.find_by_id(params[:id])
     current_player.meetings.push(event) if !is_involved(params[:id])
-    redirect_to city_meetings_path(:name=> event.place.city)  
+    redirect_to request.referer  #city_meetings_path(:name=> event.place.city)  
   end
 
   def leave
     event = Meeting.find_by_id(params[:id])
     event.players.delete(current_player) if is_involved(params[:id])
     event.delete if event.players_count == 0
-    redirect_to city_meetings_path(:name=> event.place.city)
+    redirect_to request.referer #city_meetings_path(:name=> event.place.city)
   end
 
 end

@@ -4,7 +4,7 @@ def index
   end
 
   def show
-    
+    @player = Player.find_by_id(params[:id])    
   end
 
   # def new

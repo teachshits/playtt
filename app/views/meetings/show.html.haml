@@ -1,0 +1,42 @@
+%row-fluid
+  %span12
+    %header
+      %h3
+        ="#{@meeting.title} - #{formatted_time_for_header(@meeting)}"
+.span4
+  %table.table
+    %thead
+      %tr
+        %th=t(:player)
+        %th=t(:amount_of_meetings) 
+        %th=t(:level)
+    %tbody
+      -for player in @meeting.players
+        %tr
+          %th
+            =link_to "#{player.first_name} #{player.last_name}", player_path(player.id)
+          %th
+            ="#{player.meetings.participated.length}"
+          %th
+            =i18n_downcase(player.level)
+.span4.offset1
+  %div.club_title
+    ="#{t(:club)}: #{@meeting.place.name}"
+  %div.club_address
+    ="#{t(:address)}: #{@meeting.place.address}"
+  %div.meeting_level
+    =i18n_downcase("#{t(:level)}: #{@meeting.level}")
+  -if player_signed_in?
+    %div.join_block
+      =form_tag((is_involved(@meeting.id) ? leave_meetings_path : enroll_meetings_path)) do
+        -if is_involved(@meeting.id)
+          =submit_tag('Отказаться', :class => "btn btn-info")
+          =hidden_field_tag(@meeting, 'leave')
+        -else
+          =submit_tag('Присоединиться', :class => "btn")
+          =hidden_field_tag @meeting, 'enroll'
+        =hidden_field_tag(:id, @meeting.id)
+
+  
+
+

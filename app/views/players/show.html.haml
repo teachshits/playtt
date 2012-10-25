@@ -1,6 +1,10 @@
 %h1 Профиль игрока
 
-%article
+%article.profile
+  %p 
+    ="#{ @player.first_name } #{ @player.last_name }"
+  %p 
+    ="#{ @player.level}"    
   %p
-    Имя игрока:
-    ="#{current_player.first_name}  #{current_player.last_name}"
+    =t('.participated', :amount => @player.meetings.participated.length)
+    
