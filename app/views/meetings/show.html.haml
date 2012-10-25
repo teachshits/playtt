@@ -1,9 +1,10 @@
+-customjs('http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU')
 %row-fluid
   %span12
     %header
       %h3
         ="#{@meeting.title} - #{formatted_time_for_header(@meeting)}"
-.span4
+.span3
   %table.table
     %thead
       %tr
@@ -19,7 +20,7 @@
             ="#{player.meetings.participated.length}"
           %th
             =i18n_downcase(player.level)
-.span4.offset1
+.span3.offset1
   %div.club_title
     ="#{t(:club)}: #{@meeting.place.name}"
   %div.club_address
@@ -36,6 +37,29 @@
           =submit_tag('Присоединиться', :class => "btn")
           =hidden_field_tag @meeting, 'enroll'
         =hidden_field_tag(:id, @meeting.id)
+.span4#map
+
+:javascript
+  ymaps.ready(init);
+
+    function init(){     
+      var myGeocoder = ymaps.geocode("#{@meeting.place.city} #{@meeting.place.address}");
+      myGeocoder.then(
+      function (res) {
+        var point = res.geoObjects.get(0);
+        coords = point.geometry.getCoordinates();
+        myPlacemark = new ymaps.Placemark(coords)
+        map = new ymaps.Map ("map", {
+          center: coords,
+          zoom: 16,
+          });
+        map.geoObjects.add(myPlacemark);
+        },
+      function (err) { }
+      );
+
+    }
+
 
   
 

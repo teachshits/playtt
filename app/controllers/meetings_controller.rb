@@ -46,8 +46,12 @@ class MeetingsController < ApplicationController
   def leave
     event = Meeting.find_by_id(params[:id])
     event.players.delete(current_player) if is_involved(params[:id])
-    event.delete if event.players_count == 0
-    redirect_to request.referer #city_meetings_path(:name=> event.place.city)
+    if event.players_count == 0
+      event.delete
+      redirect_to meetings_path #city_meetings_path(:name=> event.place.city)
+    else
+      redirect_to request.referer
+    end      
   end
 
 end
