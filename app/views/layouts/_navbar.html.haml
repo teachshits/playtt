@@ -8,7 +8,9 @@
         %li
           =link_to  'Создать встречу', new_meeting_path
         %li
-          =link_to  'Добавить место', '#'
+          =link_to  'Места', places_path
+        %li
+          =link_to  'Игроки', players_path
 
       %ul.pull-right.nav
         -if player_signed_in?

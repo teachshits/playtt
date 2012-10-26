@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_filter :authenticate_player!,  except: [:index, :show]
+  before_filter :authenticate_player!,  except: [:index, :show, :city]
   #only: [:new, :edit, :update]
   include MeetingsHelper
 

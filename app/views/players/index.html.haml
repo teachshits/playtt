@@ -1,2 +1,4 @@
-
-=@players
+.span3
+  -for player in @players
+    %p
+      =link_to "#{player.last_name} #{player.first_name}", player_path(player)

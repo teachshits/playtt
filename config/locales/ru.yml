@@ -11,6 +11,10 @@ ru:
   till: до
   club: Клуб
   address: Адрес
+  places:
+    index: &index
+      add_place: Добавить место
+    show: *index
   players:
     show:
       participated: Проведено %{amount} встреч

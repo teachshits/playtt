@@ -1,0 +1,16 @@
+.span3
+  -for place in @places
+    %p
+      =link_to "#{place.city} #{place.name}", place_path(place.id)
+.span5
+  %article.profile
+    %p
+      =@current_place.name
+    %p
+      ="#{@current_place.city}, #{@current_place.address}"
+    %p
+      ="Количество встреч: #{@current_place.meetings.length}"
+.span4
+  .align-right
+    %button.btn(type='button')
+      =link_to t('.add_place'), new_place_path      

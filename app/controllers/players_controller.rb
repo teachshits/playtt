@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 def index
-   redirect_to root_url
+    @players = Player.all(:order => :last_name)
   end
 
   def show

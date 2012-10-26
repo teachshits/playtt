@@ -17,17 +17,7 @@
 
 
   show: ->
-    window.YMinit = (address) ->
-      myGeocoder = ymaps.geocode(address);
-      myGeocoder.then (res) ->
-          point = res.geoObjects.get(0);
-          coords = point.geometry.getCoordinates();
-          console.dir(coords)
-          map = new ymaps.Map  "map", {
-            center: coords,
-            zoom: 16
-            }
-
+    
   create: ->
     @new()
 

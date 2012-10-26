@@ -1,2 +1,8 @@
-
-=@places
+.span3
+  -for place in @places
+    %p
+      =link_to "#{place.city} #{place.name}", place_path(place.id)
+.span2.offset7
+  .align-right
+    %button.btn(type='button')
+      =link_to t('.add_place'), new_place_path      
