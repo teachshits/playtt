@@ -26,7 +26,7 @@ ru:
       meetings_in_city: Встречи в городе %{city}
       no_meetings_avaible: Нету достпуных встреч
     show: *index
-    center_table: 
+    center_table: &center_table
       <<: *index
       details: Подробности
       place: Место
@@ -35,6 +35,11 @@ ru:
       end_at: Конец
       players: Игроки
       address: Адрес 
+    new:
+      <<: *center_table 
+      title: Название 
+      place: Место
+      create_meeting: Создать встречу    
   helpers:
     label:
       player:
@@ -54,6 +59,8 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         password_digest: 'Пароль'
+        level: Уровень
+        remember_me: Запомнить меня
     errors:
       format: "%{message}"
       models:
@@ -61,6 +68,8 @@ ru:
           attributes:
             last_name:
               blank: 'не может быть пустой'
+            email:
+              blank:  'не может быть пустой'
   time:
     formats:
       compact: '%H:%M %e %b'

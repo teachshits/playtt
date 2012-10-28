@@ -5,19 +5,19 @@
 .span7.offset3
   =form_for(@meeting, :html => { :class => 'form-horizontal fM offset1'}) do |f|
     .control-group
-      =f.label :title, class: 'control-label'
+      =f.label t('.title'), class: 'control-label'
       .controls
         =f.text_field :title
-      =f.label :start_at, class: 'control-label'
+      =f.label t('.start_at'), class: 'control-label'
       .controls
         =f.text_field :start_at, "autocomplete" => "off"
-      =f.label :end_at, class: 'control-label'
+      =f.label t('.end_at'), class: 'control-label'
       .controls
         =f.text_field :end_at, "autocomplete" => "off"
-      =f.label :place_id, class: 'control-label'
+      =f.label t('.place'), class: 'control-label'
       .controls
         =f.select :place_id, options_for_select(@places), :class => 'input-xlarge'
 
-      =f.submit  :class=>'submit-center'
+      =f.submit t('.create_meeting'),  :class=>'submit-center'
 
 
